@@ -1,0 +1,45 @@
+version: '3'
+
+volumes:
+  data:
+
+services:
+  mariadb:
+    container_name: php8_mariadb
+    image: mariadb:10.5.8-focal
+    restart: always
+    ports:
+      - '3306:3306'
+    volumes:
+      - data:/var/lib/mysql
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=database
+    command: mysqld --sql_mode=""
+
+  phpadmin:
+    container_name: php8_phpmyadmin
+    image: phpmyadmin/phpmyadmin:latest
+    restart: always
+    links:
+      - mariadb
+    ports:
+      - '8080:80'
+    environment:
+      - PMA_ARBITRARY=1
+
+  apache:
+    container_name: php8_apache
+    build: .
+    restart: always
+    ports:
+      - 80:80
+    volumes:
+      - .:/var/www/html/php8_projects
+    depends_on:
+      - mariadb
+    links:
+      - mariadb
+    
+
