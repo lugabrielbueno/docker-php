@@ -5,9 +5,9 @@ if you have a project with no frameworks, this is what you need to containerize 
 ## Steps
 
 ```
-$ mkdir example
+$ mkdir php8_projects
 
-$ cd example
+$ cd php8_projects
 
 $ docker-compose up -d
 ```
