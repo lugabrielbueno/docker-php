@@ -9,6 +9,8 @@ $ mkdir php8_projects
 
 $ cd php8_projects
 
+$ git clone git@github.com:lugabrielbueno/docker-php.git .
+
 $ docker-compose up -d
 ```
 
