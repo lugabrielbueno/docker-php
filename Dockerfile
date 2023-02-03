@@ -1,6 +1,5 @@
 FROM php:8.1-apache
 RUN apt-get update -y && apt-get upgrade -y
-RUN apt install vim -y
 RUN apt-get install libpng-dev -y
 RUN apt-get install libonig-dev
 RUN docker-php-ext-install mysqli pdo pdo_mysql mbstring dom

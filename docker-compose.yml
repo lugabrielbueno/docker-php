@@ -6,7 +6,7 @@ volumes:
 services:
   mariadb:
     container_name: php8_mariadb
-    image: mariadb:10.5.8-focal
+    image: mariadb:latest
     restart: always
     ports:
       - '3306:3306'
