@@ -1,7 +1,8 @@
 FROM php:8.1-apache
 RUN apt-get update -y && apt-get upgrade -y
 RUN apt-get install libpng-dev -y
-RUN apt-get install libonig-dev
+RUN apt-get install libonig-dev -y
+RUN apt-get install libxml2-dev -y
 RUN docker-php-ext-install mysqli pdo pdo_mysql mbstring dom
 RUN docker-php-ext-enable mysqli pdo pdo_mysql mbstring dom
 RUN pecl install xdebug
